@@ -18,8 +18,9 @@ while True:
         information = CheckSameNumbersInMatrics(FindSameNumbers(esimene_ja_teine_numbrid))
         InformationDisplay(information)
 
+        warning("Teie andmed on salvestatud meie kasutajate andmebaasi!")
         sleep(1)
-        print("Teie andmed on salvestatud meie kasutajate andmebaasi!")
+
     elif vastus == 1:
         if len(temp_users_data):
             nimi = VariableCheck("Mis sinu nimi on? ", "See nimi ei ole!", FindNameInLocalData)
