@@ -1,10 +1,8 @@
-# +----------------------------------------------------------------------------------------------------+
-# | WARNING!!! WARNING!!! WARNING!!! WARNING!!! WARNING!!! WARNING!!! WARNING!!! WARNING!!! WARNING!!! |
+
 # +====================================================================================================+
-# | 1.Vabandust, ma nimetasin faili valesti kõigi Pythagorase omadustega.                              |
-# | 2.Ma ei pruugi ülesandest õigesti aru saada, aga ma olen midagi teinud ja see justkui töötab.      |
-# |                                                                                                    |
+# | 1.Ma ei pruugi ülesandest õigesti aru saada, aga ma olen midagi teinud ja see justkui töötab.      |
 # +----------------------------------------------------------------------------------------------------+
+
 
 from Pythaorase_ruut import data
 from time import sleep
@@ -177,7 +175,7 @@ def AnswerConvert(answer: str):
 # |                     VARIABLE CHECK METHODS                     |
 # +----------------------------------------------------------------+
 
-def VariableCheck(kusimus: str, veateade: str, kontroll_funktsioon: any, while_is_None=True) -> any:
+def VariableCheck(kusimus: str, veateade: str, kontroll_funktsioon: any, while_condition=True) -> any:
     """Mõistmiseks üsna raske funktsioon, kuid selle sisuks on küsida kasutajalt küsimust,
     mis edastatakse argumendiga "kusimus" ja seda vastust, mille kasutaja on kirjutanud,
     kontrollitakse argumentides märgitud funktsiooni abil, mis tuleb edastada kindlasti juhul,
@@ -194,16 +192,15 @@ def VariableCheck(kusimus: str, veateade: str, kontroll_funktsioon: any, while_i
     :param while_is_None:
     :return:
     """
-    x = (None if while_is_None is True else not None)
-    while x is (None if while_is_None is True else not None):
+    x = while_condition
+    vastus:any
+    while x is while_condition:
         vastus = input(kusimus)
         x = kontroll_funktsioon(vastus)
-        if x is (None if while_is_None is True else not None):
+        if x is while_condition:
             print(veateade)
             sleep(1)
-        elif x is False:
-            break
-    return x
+    return vastus
 
 
 def FindNameInLocalData(nimi: str) -> any:
@@ -216,8 +213,9 @@ def FindNameInLocalData(nimi: str) -> any:
     for dict_ in temp_users_data:
         for key, value in dict_.items():
             if nimi == value:
-                return nimi
-    return None
+                print(True)
+                return True
+    return False
 
 
 def YearVerification(aastat: str) -> any:
@@ -227,9 +225,9 @@ def YearVerification(aastat: str) -> any:
     :param aastat:
     :return:
     """
-    if 4 > len(aastat) < 4:
-        return None
-    return int(aastat)
+    if 4 < len(aastat) or len(aastat) < 4:
+        return False
+    return True
 
 
 def MonthVerification(kuu: str) -> any:
@@ -240,8 +238,8 @@ def MonthVerification(kuu: str) -> any:
     :return:
     """
     if 0 < int(kuu) <= 12:
-        return int(kuu)
-    return None
+        return True
+    return False
 
 
 def DayVerification(paev: str) -> any:
@@ -252,9 +250,6 @@ def DayVerification(paev: str) -> any:
     :return:
     """
     if 0 < int(paev) <= 31:
-        return int(paev)
-    return None
+        return True
+    return False
 
-# +-----------------------------------------------------------------+
-# |                          By Copper //                           |
-# +-----------------------------------------------------------------+
