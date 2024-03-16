@@ -3,7 +3,7 @@
 # | 1.Ma ei pruugi ülesandest õigesti aru saada, aga ma olen midagi teinud ja see justkui töötab.      |
 # +----------------------------------------------------------------------------------------------------+
 
-
+from customInterface import warning # minu isiklik moodul, kus hoitakse erinevate raamidega informatsiooni väljundi funktsioone jne
 from Pythaorase_ruut import data
 from time import sleep
 import re  # regulaaravaldiste moodul, väga ammu uurinud ja otsustanud, et nüüd saab seda rakendada, et töötada ridade ja andmete paigutusega
@@ -54,7 +54,7 @@ def LoadFromUsersData():
 
 
 LoadFromUsersData()
-print("Kasutajate andmed laaditi üles lokaalselt.\n")
+warning("Kasutajate andmed laaditi üles lokaalselt.", after="")
 
 
 # +-----------------------------------------------------------------------------------+
