@@ -3,15 +3,15 @@ from MyModyl import *
 while True:
     sleep(1)
     print("Tere, see on oma ruudu arvutus Pythagorase meetodil!\nKas sa tahad teada oma pythagorase ruutu(0) või leida nime(1)?\n")
-    vastus = int(VariableCheck("Mida te tahate? ", "Vale vastus!", AnswerConvert))
+    vastus = int(VariableCheck("Mida te tahate? ", "Vale vastus!", AnswerConvert, while_condition=None))
     if vastus == 0:
-        nimi = VariableCheck("Mis sinu nimi on? ", "See nimi oli juba!", FindNameInLocalData, while_is_None = False)
+        nimi = VariableCheck("Mis sinu nimi on? ", "See nimi oli juba!", FindNameInLocalData)
+        print(nimi)
+        aastat = VariableCheck("Mis on sinu sünniaasta? ", "Vale sünniaasta, proovi uuesti", YearVerification, while_condition=False)
+        kuu = VariableCheck("Milline on sinu sünnikuu? ", "Vale sünniakuu, proovi uuesti", MonthVerification, while_condition=False)
+        paev = VariableCheck("Mis on su sünnipäev? ", "Vale sünniapaev, proovi uuesti", DayVerification, while_condition=False)
 
-        aastat = VariableCheck("Mis on sinu sünniaasta? ", "Vale sünniaasta, proovi uuesti", YearVerification)
-        kuu = VariableCheck("Milline on sinu sünnikuu? ", "Vale sünniakuu, proovi uuesti", MonthVerification)
-        paev = VariableCheck("Mis on su sünnipäev? ", "Vale sünniapaev, proovi uuesti", DayVerification)
-
-        esimene_ja_teine_numbrid = BirthdayCalculation(aastat, kuu, paev)
+        esimene_ja_teine_numbrid = BirthdayCalculation(int(aastat), int(kuu), int(paev))
 
         SaveToUsersData(DataFormatting(nimi, f"{paev}.{kuu}.{aastat}", esimene_ja_teine_numbrid))
 
