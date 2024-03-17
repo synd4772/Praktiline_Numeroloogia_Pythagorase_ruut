@@ -23,7 +23,7 @@ while True:
 
     elif vastus == 1:
         if len(temp_users_data):
-            nimi = VariableCheck("Mis sinu nimi on? ", "See nimi ei ole!", FindNameInLocalData)
+            nimi = VariableCheck("Mis sinu nimi on? ", "See nimi ei ole!", FindNameInLocalData, while_condition=False)
             numbrid = FindDataByValue(nimi, "numbrid", temp_users_data)
 
             information = CheckSameNumbersInMatrics(FindSameNumbers(numbrid))
