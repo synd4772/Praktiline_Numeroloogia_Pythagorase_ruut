@@ -4,7 +4,7 @@
 # +----------------------------------------------------------------------------------------------------+
 
 from customInterface import warning # minu isiklik moodul, kus hoitakse erinevate raamidega informatsiooni väljundi funktsioone jne
-from Pythaorase_ruut import data
+from Pythagorase_ruut import data
 from time import sleep
 import re  # regulaaravaldiste moodul, väga ammu uurinud ja otsustanud, et nüüd saab seda rakendada, et töötada ridade ja andmete paigutusega
 
@@ -47,7 +47,7 @@ def LoadFromUsersData():
     temp_users_data.clear()
     with open(file=data_file, mode="r", encoding="utf-8") as f:
         lines = f.readlines()
-        for index, line in enumerate(lines):
+        for line in lines:
             match = re.match(user_find_pattern, line.strip())
             if match:
                 temp_users_data.append(match.groupdict())
@@ -69,7 +69,7 @@ def FindSameNumbers(temp_esimene_ja_teine_arved:str) -> list:
     :return:
     """
     temp_lst = list(temp_esimene_ja_teine_arved)
-    esimene_arved_jarjend = [[str(i) for i in range(1, 10)], [0 for i in range(1, 10)]]
+    esimene_arved_jarjend = [[str(i) for i in range(1, 10)], [0 for _ in range(1, 10)]]
     for index, arv in enumerate(temp_lst):
         temp_arv = str(arv)
         for indeks, i in enumerate(esimene_arved_jarjend[0]):
@@ -104,7 +104,7 @@ def BirthdayCalculation(aastat: int, kuu: int, paev: int) -> str:
     :return:
     """
     sunniaeg = f"{paev}.{kuu}.{aastat}"
-    summa1 = paev + int(str(kuu)[0]) + (int(str(kuu)[1]) if len(str(kuu)) > 1 else 0)
+    summa1 = int(str(paev)[0]) + (int(str(paev)[1]) if len(str(paev)) > 1 else 0) + int(str(kuu)[0]) + (int(str(kuu)[1]) if len(str(kuu)) > 1 else 0)
     aastat_summa = 0
 
     for arv in str(aastat):
@@ -116,7 +116,7 @@ def BirthdayCalculation(aastat: int, kuu: int, paev: int) -> str:
     for arv in str(summa1):
         summa2 += int(arv)
 
-    summa3 = summa1 - 2 * int(str(sunniaeg)[0])
+    summa3 = summa1 - 2 * int(sunniaeg[0])
     summa4 = 0
     for i in str(summa3):
         summa4 += int(i)
@@ -149,7 +149,7 @@ def FindDataByValue(value: any, find_data: str, datas: list) -> any:
     :return:
     """
     for dict in datas:
-        for key, dict_value in dict.items():
+        for _, dict_value in dict.items():
             if value == dict_value:
                 return dict.get(find_data)
 
@@ -211,7 +211,7 @@ def FindNameInLocalData(nimi: str) -> any:
     :return:
     """
     for dict_ in temp_users_data:
-        for key, value in dict_.items():
+        for _, value in dict_.items():
             if nimi == value:
                 print(True)
                 return True
