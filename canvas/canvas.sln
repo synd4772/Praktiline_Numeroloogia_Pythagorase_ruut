@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "canvas", "canvas.pyproj", "{D952AF3C-8190-43E0-85F1-CB79FB7B983C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D952AF3C-8190-43E0-85F1-CB79FB7B983C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D952AF3C-8190-43E0-85F1-CB79FB7B983C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C8F69E18-8A45-4481-9C7C-F3014D6DBE25}
+	EndGlobalSection
+EndGlobal
